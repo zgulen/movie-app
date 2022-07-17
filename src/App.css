@@ -53,3 +53,8 @@
   margin: 0;
   font-family: 'Roboto Slab', serif;
 }
+
+.image{
+  width: 300px;
+  height: calc(520px - 32px);
+}

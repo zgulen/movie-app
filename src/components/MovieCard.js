@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-
+import image from "../assets/defImg.jpg"
+ 
 
 const MovieCard = () => {
     const [data, setData] = useState([])
@@ -60,7 +61,7 @@ const MovieCard = () => {
                         searchData.map((e) => {
                             return (
                                 <div className='movie' key={e.id} onMouseOver={() => handleMovieData(e.overview, e.id)}>
-                                    <img src={`https://image.tmdb.org/t/p/w300/${e.poster_path}`} alt="" />
+                                    <img className='image' src={e.poster_path === null ? image : `https://image.tmdb.org/t/p/w300/${e.poster_path}`} alt="" />
                                     <p className='movie-name'>{e.title}</p>
                                 </div>
                             )
@@ -75,7 +76,7 @@ const MovieCard = () => {
                     data.map((e) => {
                         return (
                             <div className='movie' key={e.id} onMouseOver={() => handleMovieData(e.overview, e.id)}>
-                                <img src={`https://image.tmdb.org/t/p/w300/${e.poster_path}`} alt="" />
+                                <img className='image' src={e.poster_path === null ? image : `https://image.tmdb.org/t/p/w300/${e.poster_path}`} alt="" />
                                 <p className='movie-name'>{e.title}</p>
                                 {showOverview && e.id === target ? <div className='overview'> <h2 >Overview</h2> <p >{e.overview}</p> </div> : null}
                             </div>
