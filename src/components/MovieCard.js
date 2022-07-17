@@ -41,8 +41,8 @@ const MovieCard = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-        setIsSearched(true)
-        setOppositeIsSearched(false)
+        setIsSearched(!isSearched)
+        setOppositeIsSearched(!oppositeisSearched)
     }
     const handleInput = (e) => {
         setInputValue(e)
@@ -53,7 +53,7 @@ const MovieCard = () => {
             <>
                 <form onSubmit={(e) => handleSubmit(e)}>
                     <input onChange={(e) => handleInput(e.target.value)} type="search" placeholder='Search a Movie' className='form-ele' />
-                    <button className='form-ele'>Search</button>
+                    <button className='form-ele'>{isSearched ? "New Search" : "Search"}</button>
                 </form>
                 {isSearched && <div className='searched-movies'>
                     {
