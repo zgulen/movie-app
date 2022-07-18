@@ -1,10 +1,12 @@
 import './App.css';
-import MovieCard from './components/MovieCard';
+import Router from './router/Router';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
     <div className="App">
-     <MovieCard/>
+      <Toaster position='top-right'/>
+     <Router/>
     </div>
   );
 }
