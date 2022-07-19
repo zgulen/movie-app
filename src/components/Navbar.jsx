@@ -3,8 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
     const navigate = useNavigate();
-    const currentUser = "Zübeyir Gülen";
-    // const currentUser = ""
+    // const currentUser = "Zübeyir Gülen";
+    const currentUser = "";
     return (
         <div>
             <nav className="navbar navbar-expand-lg">
