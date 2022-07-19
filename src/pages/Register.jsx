@@ -1,17 +1,19 @@
 import React from "react";
 import { useState } from "react";
-
+import { createUser } from "../auth/firebase";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-      const [firstName, setFirstName] = useState("")
-      const [lastname, setLastName] = useState("")
-      const [email, setEmail] = useState("")
-      const [password, setPassword] = useState("")
+    const navigate = useNavigate();
+    const [firstName, setFirstName] = useState("");
+    const [lastname, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-      const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log(firstName);
-      }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        createUser(email, password, navigate);
+    };
     return (
         <div className="d-flex justify-content-center ">
             <div className="form-image d-none d-md-block">
@@ -30,7 +32,7 @@ const Register = () => {
                             id="firstName"
                             placeholder="Enter Your First Name"
                             required
-                            onChange={e => setFirstName(e.target.value)}
+                            onChange={(e) => setFirstName(e.target.value)}
                         />
                     </div>
                     <div>
@@ -44,8 +46,7 @@ const Register = () => {
                             id="lastName"
                             placeholder="Enter Your Last Name"
                             required
-                            onChange={e => setLastName(e.target.value)}
-
+                            onChange={(e) => setLastName(e.target.value)}
                         />
                     </div>
                     <div>
@@ -58,8 +59,7 @@ const Register = () => {
                             id="email"
                             placeholder="Enter Your Email address"
                             required
-                            onChange={e => setEmail(e.target.value)}
-
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
                     <div>
@@ -72,8 +72,7 @@ const Register = () => {
                             id="password"
                             placeholder="Enter Your Password"
                             required
-                            onChange={e => setPassword(e.target.value)}
-                            
+                            onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
                     <div className="mb-3">
