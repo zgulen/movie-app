@@ -1,10 +1,11 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
     const navigate = useNavigate();
-    // const currentUser = "Zübeyir Gülen";
-    const currentUser = "";
+    const { currentUser } = useContext(AuthContext);
     return (
         <div>
             <nav className="navbar navbar-expand-lg">
